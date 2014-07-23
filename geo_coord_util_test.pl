@@ -31,9 +31,9 @@ sub normalize_longitude_test {
 		$normalized2 = &geo_coord_util::normalize_longitude_2($case);
 		if ( $test_cases{$case} != $normalized || $normalized != $normalized2 ) {
 			$passed = 0;	
-			print STDERR "failed: case $case \tresult: $normalized \texpected: $test_cases{$case}\n";
+			print STDERR "failed: case $case \tresult: $normalized,$normalized2 \texpected: $test_cases{$case}\n";
 		} elsif ( $opt_v ){
-			print STDERR "passed: case $case \tresult: $normalized \texpected: $test_cases{$case}\n";
+			print STDERR "passed: case $case \tresult: $normalized,$normalized2 \texpected: $test_cases{$case}\n";
 		}
 	}
 	return($passed);

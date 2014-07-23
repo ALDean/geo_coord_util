@@ -32,10 +32,8 @@ sub normalize_longitude_2($) {
 #       longitude: in decimal degrees
 #   returns: longitude normalized to range +/- 180 degrees
 	my ($long) = @_;
-	if ( $long < -180 ) {
-		return( 180-((180 - $long)%360) );
-	} elsif ( $long > 180 ) {
-		return( -180+(($long+180)%360) );
+	if ( abs($long) > 180 ) {
+		return( 180.0-((180.0 - $long)%360.0) );
 	} else {
 		return($long);
 	}
