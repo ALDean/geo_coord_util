@@ -28,7 +28,8 @@ sub normalize_longitude_test {
 	my $passed = 1;
 	foreach $case ( keys(%test_cases) ) {
 		$normalized = &geo_coord_util::normalize_longitude($case);
-		if ( $test_cases{$case} != $normalized ) {
+		$normalized2 = &geo_coord_util::normalize_longitude_2($case);
+		if ( $test_cases{$case} != $normalized || $normalized != $normalized2 ) {
 			$passed = 0;	
 			print STDERR "failed: case $case \tresult: $normalized \texpected: $test_cases{$case}\n";
 		} elsif ( $opt_v ){

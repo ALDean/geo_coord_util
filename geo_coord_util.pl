@@ -24,4 +24,21 @@ sub normalize_longitude($) {
 	}
 }
 
+sub normalize_longitude_2($) {
+# normalize_longitude_2
+# This is a refinement of the working algorithm in normalize_longitude
+# I'd like to compare the performance of the two...
+#   parameter(s): 
+#       longitude: in decimal degrees
+#   returns: longitude normalized to range +/- 180 degrees
+	my ($long) = @_;
+	if ( $long < -180 ) {
+		return( 180-((180 - $long)%360) );
+	} elsif ( $long > 180 ) {
+		return( -180+(($long+180)%360) );
+	} else {
+		return($long);
+	}
+}
+
 1;
